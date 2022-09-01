@@ -4,7 +4,8 @@ using Nethereum.Web3;
 
 namespace Caduceus
 {
-    //sosos
+    //C Sharp connection to Caduceus
+    
     class Program
     {
         static void Main(string[] args)
