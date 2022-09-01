@@ -1,0 +1,27 @@
+using System;
+using System.Threading.Tasks;
+using Nethereum.Web3;
+
+namespace Caduceus
+{
+    //sosos
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            GetAccountBalance().Wait();
+            Console.ReadLine();
+        }
+
+        static async Task GetAccountBalance()
+        {
+            var web3 = new Web3("https://galaxy.block.caduceus.foundation");
+            var balance = await web3.Eth.GetBalance.SendRequestAsync("0x300cd034DED7FBbC05Ebd597fDd4fd36D94b2F3d");
+            Console.WriteLine($"Balance in CMP-DECIMALS: {balance.Value}");
+
+            var etherAmount = Web3.Convert.FromWei(balance.Value);
+            Console.WriteLine($"Balance in CMP: {etherAmount}");
+        }
+    }
+}
+
